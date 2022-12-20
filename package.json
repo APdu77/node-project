@@ -4,9 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=production node ./bin/www",
+    "dev": "cross-env NODE_ENV=development nodemon ./bin/www"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Rousseau@Diginamic apdu77@yahoo.fr",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3"
+  }
 }

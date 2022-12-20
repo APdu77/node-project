@@ -1,0 +1,16 @@
+const http = require('http');
+const https = require('https');
+const { ssl: { cert, key }, port } = require(`../environment/env.${process.env.NODE_ENV}.js`);
+
+http
+    .createServer((req, res) => {
+
+        res.end('HTTP');
+    })
+    .listen(port.http);
+
+https
+    .createServer({ cert, key }, (req, res) => {
+        res.end('HTTPS');
+    })
+    .listen(port.https);

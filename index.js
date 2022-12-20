@@ -1,0 +1,1 @@
+console.log("Projet démarré en " + process.env.NODE_ENV);
