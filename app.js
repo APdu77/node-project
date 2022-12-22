@@ -1,28 +1,36 @@
-const esprex = require('./core/esprex');
-const app = esprex();
+/*1/ Créer un dossier public/ dans lequel on aura:
+  - Un fichier pour l'accueil (index.html)
+  - Un fichier pour la page de services
+  - Un fichier pour la page de contact
 
-app.get('/', (req, res) => {
-    res.end(`
-      <h1>Home Page</h1>
-      <form method="POST" action="/contact">
-        <input type="text" name="email">
-        <button type="submit">Go !</button>
-      </form>
-    `);
+2/ Créer les routes en GET permettant de charger les fichier*/
+
+const express = require('express');
+const app = express();
+const {resolve} = require ('path');
+const routes = require('./routing/routes');
+const controllers = require('./controllers/controllers');
+
+app.use(express.static(resolve('public')));
+
+app.get(routes.users, (req, res) => {
+  res.json({name: 'coco'});
 });
 
-app.get('/contact', (req, res) => {
-    res.end('Contact Page');
+app.get(routes.home, (req, res) => {
+  res.sendFile(resolve ('public','index.html'));
 });
 
-app.post('/contact', (req, res) => {
-    res.end('Contact Page (POST)');
+app.get(routes.services, (req, res) => {
+  res.sendFile(resolve ('public','services.html'));
 });
 
-app.get('/services', (req, res) => {
-    res.end('Services Page');
+app.get(routes.contact, (req, res) => {
+  res.sendFile(resolve ('public','contact.html'));
 });
 
-console.log(app.router.routes);
+app.get(routes._default, (req, res) => {
+  res.sendFile(resolve ('public','page404.html'));
+});
 
 module.exports = app;
