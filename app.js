@@ -7,7 +7,7 @@
 
 const express = require('express');
 const app = express();
-const {resolve} = require ('path');
+const { resolve } = require('path');
 const appRoutes = require('./routing/app.routes');
 const apiUsersRoutes = require('./routing/api-users.routes');
 

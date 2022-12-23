@@ -12,6 +12,10 @@ function services(req, res) {
   res.sendFile(resolve('public', 'services.html'));
 };
 
+function usersInfo(req, res) {
+  res.sendFile(resolve('public', 'usersInfo.html'));
+};
+
 function defaultCtrl(req, res) {
   res.sendFile(resolve('public','page404.html'));
 };
@@ -22,5 +26,6 @@ module.exports = {
   home,
   services,
   contact,
+  usersInfo,
   defaultCtrl
 };

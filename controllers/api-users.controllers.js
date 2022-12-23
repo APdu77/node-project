@@ -1,5 +1,10 @@
-function users(req, res) {
-    res.json({ name: 'coco' })
+const { users } = require('../database/data.json');
+
+function usersCtrl (req, res) {
+    res.json({
+        nbUsers: users.length,
+        users
+    })
 };
 
-module.exports = users;
+module.exports = usersCtrl;
