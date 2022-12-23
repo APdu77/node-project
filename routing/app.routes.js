@@ -1,20 +1,13 @@
 const { resolve } = require('path');
 const router = require('express').Router();
+const { home , contact, services, defaultCtrl } = require('../controllers/app.controllers');
 
-router.get('/home', (req, res) => {
-    res.sendFile(resolve('public', 'index.html'));
-});
+router.get('/home', home);
 
-router.get('/services', (req, res) => {
-    res.sendFile(resolve('public', 'services.html'));
-});
+router.get('/contact', contact);
 
-router.get('/contact', (req, res) => {
-    res.sendFile(resolve('public', 'contact.html'));
-});
+router.get('/services', services);
 
-router.get('*', (req, res) => {
-    res.sendFile(resolve('public', 'page404.html'));
-});
+router.get('/defaultCtrl', defaultCtrl);
 
 module.exports = router;

@@ -9,10 +9,10 @@ const express = require('express');
 const app = express();
 const {resolve} = require ('path');
 const appRoutes = require('./routing/app.routes');
-const api = require('./routing/api-users.routes');
+const apiUsersRoutes = require('./routing/api-users.routes');
 
 app.use(express.static(resolve('public')));
-app.use(api);
+app.use(apiUsersRoutes);
 app.use(appRoutes);
 
 

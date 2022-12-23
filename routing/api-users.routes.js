@@ -1,8 +1,6 @@
-const { resolve } = require('path');
-const api = require('express').Router();
+const users = require('../controllers/api-users.controllers');
+const apiUsersRoutes = require('express').Router();
 
-api.get('/api/users', (req, res) => {
-    res.json({ name: 'coco' });
-});
+apiUsersRoutes.get('/api/users', users);
 
-module.exports = api;
+module.exports = apiUsersRoutes;
